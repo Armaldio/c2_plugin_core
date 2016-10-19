@@ -4,6 +4,7 @@
 assert2(cr, "cr namespace not created");
 assert2(cr.plugins_, "cr.plugins_ not created");
 
+//Add this to load the Core
 var CORE = window.CORE;
 
 /////////////////////////////////////
@@ -31,6 +32,7 @@ cr.plugins_.plugin_with_core = function(runtime)
 	// called on startup for each object type
 	typeProto.onCreate = function()
 	{		
+		console.log(CORE);
 	};
 
 	/////////////////////////////////////
@@ -46,7 +48,6 @@ cr.plugins_.plugin_with_core = function(runtime)
 	// called whenever an instance is created
 	instanceProto.onCreate = function()
 	{
-		console.log(CORE);
 	};
 	
 	instanceProto.onDestroy = function ()
@@ -84,6 +85,12 @@ cr.plugins_.plugin_with_core = function(runtime)
 	//////////////////////////////////////
 	// Actions
 	function Acts() {};
+	
+	Acts.prototype.ShowAlert = function (message)
+	{
+		//CORE.Messages.ShowAlert(message);
+		CORE.ShowAlert(message);
+	};
 
 	pluginProto.acts = new Acts();
 	

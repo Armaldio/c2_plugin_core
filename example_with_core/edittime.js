@@ -14,6 +14,9 @@
 	};
 }
 
+AddStringParam("String", "The string you want to alert");
+AddAction(0, af_none, "Alert", "Message", "Alert {0}", "Alert a message.", "ShowAlert");
+
 ACESDone();
 
 var property_list = [

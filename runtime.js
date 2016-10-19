@@ -4,9 +4,32 @@
 assert2(cr, "cr namespace not created");
 assert2(cr.plugins_, "cr.plugins_ not created");
 
-window.CORE = {
-			key: "value"
-		};
+/*
+function Acts() {};
+	
+Acts.prototype.ShowAlert = function (message)
+{
+	//CORE.Messages.ShowAlert(message);
+};
+*/
+
+//Defining CORE
+function CORE(){};
+
+//Adding Messages
+/*
+CORE.prototype.Messages = function Messages(){};
+
+var Messages = new Messages();
+*/
+
+CORE.prototype.ShowAlert = function(message)
+{
+	alert(message);
+};
+
+window.CORE = new CORE();
+
 
 /////////////////////////////////////
 // Plugin class
